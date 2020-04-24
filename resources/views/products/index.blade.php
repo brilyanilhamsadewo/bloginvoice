@@ -11,7 +11,7 @@
                                 <h3 class="card-title">Manajemen Produk</h3>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ url('/product/new') }}" class="btn btn-primary btn-sm float-right">Tambah Data</a>
+                                <a href="{{ url('/product/create') }}" class="btn btn-primary btn-sm float-right">Tambah Data</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                                     <td>{{ str_limit($product->description, 50) }}</td>
                                     <td>Rp {{ number_format($product->price) }}</td>
                                     <td>{{ $product->stock }}</td>
-                                    <td>{{ ($product->created_at) }}</td>
+                                    <td>{{ $product->created_at->format('d-m-Y') }}</td>
                                     <!-- TOMBOL DELETE MENGGUNAKAN METHOD DELETE DALAM ROUTING SEHINGGA KITA MEMASUKKAN TOMBOL TERSEBUT KEDALAM TAG <FORM></FORM> -->
                                     <td>
                                         <form action="{{ url('/product/' . $product->id) }}" method="POST">

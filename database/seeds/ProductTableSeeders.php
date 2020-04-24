@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Product;
 
 class ProductTableSeeders extends Seeder
 {
@@ -11,16 +12,16 @@ class ProductTableSeeders extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
-            'title' => "Macbook pro 13 2017",
-            'description' => "macbook pro keluaran apple tahun 2017",
+        Product::create([
+            'title' => 'Macbook Pro 13 2017',
+            'description' => 'Seri komputer jinjing Macintosh yang diproduksi oleh Apple',
             'price' => 18500000,
             'stock' => 5
         ]);
 
-        DB::table('products')->insert([
-            'title' => "Asus ROG Slim",
-            'description' => "brand ROG",
+        Product::create([
+            'title' => 'Asus Rog Slim',
+            'description' => 'Sebuah brand perangkat keras notebook khusus gaming dari ASUS',
             'price' => 10500000,
             'stock' => 15
         ]);
