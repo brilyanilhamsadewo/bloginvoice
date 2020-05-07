@@ -93,4 +93,17 @@ class InvoiceController extends Controller
         //DAN DI-REDIRECT KEMBALI
         return redirect()->back()->with(['success' => 'Product telah dihapus']);
     }
+
+    public function index()
+    {
+        $invoice  = Invoice::with(['customer', 'detail'])->orderBy('created_at', 'DESC')->paginate(10);
+        return view('invoice.index', compact('invoice'));
+    }
+
+    public function destroy($id)
+    {
+        $invoice = Invoice::find($id);
+        $invoice->delete();
+        return redirect()->back()->with(['success' => 'Data telah dihapus']);
+    }
 }
